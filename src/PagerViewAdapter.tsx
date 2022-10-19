@@ -65,6 +65,10 @@ export default function PagerViewAdapter<T extends Route>({
         (route: { key: string }) => route.key === key
       );
 
+      if (navigationStateRef.current.index !== index) {
+        return;
+      }
+
       if (animationEnabled) {
         pagerRef.current?.setPage(index);
       } else {
